@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import axios from 'axios';
 
 export class CreateBlog extends Component {
 
@@ -46,6 +47,14 @@ export class CreateBlog extends Component {
       console.log(`Title: ${this.state.title}`);
       console.log(`Blog Post: ${this.state.blog_post}`);
       console.log(`Author: ${this.state.await }`);
+
+      const newBlog = {
+        title: this.state.title,
+        blog_post: this.state.blog_post,
+        author: this.state.author
+      };
+
+      axios.post('http')
 
       this.setState({
         title: '',
