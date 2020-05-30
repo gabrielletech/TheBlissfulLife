@@ -46,7 +46,7 @@ export class CreateBlog extends Component {
       console.log(`Form submitted`);
       console.log(`Title: ${this.state.title}`);
       console.log(`Blog Post: ${this.state.blog_post}`);
-      console.log(`Author: ${this.state.await }`);
+      console.log(`Author: ${this.state.author }`);
 
       const newBlog = {
         title: this.state.title,
@@ -54,7 +54,8 @@ export class CreateBlog extends Component {
         author: this.state.author
       };
 
-      axios.post('http')
+      axios.post('/blogs/add', newBlog)
+        .then(res => console.log(res.data));
 
       this.setState({
         title: '',
@@ -91,7 +92,7 @@ export class CreateBlog extends Component {
       <FormGroup>
         <Label for="blog">Blog Post</Label>
         <Input 
-              type="text" 
+              type="textarea" 
               name="text" 
               value={this.state.blog_post}
               onChange={this.onChangeBlogPost}
